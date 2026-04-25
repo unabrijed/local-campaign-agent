@@ -3,7 +3,7 @@ import { ArrowRight, Globe } from "lucide-react";
 export const FinalCTA = () => {
   return (
     <section className="relative py-28 overflow-hidden">
-      <div className="absolute inset-0 glow-bg" />
+      <div className="absolute inset-0 warm-bg opacity-60" />
       <div className="relative mx-auto max-w-5xl px-6">
         <div className="glass-card rounded-3xl p-10 md:p-16 text-center bg-card">
           <h2 className="font-display text-4xl md:text-6xl tracking-tight text-balance leading-[1.05]">
