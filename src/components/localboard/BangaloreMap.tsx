@@ -1,27 +1,19 @@
 import { useState } from "react";
+import { audienceFilters, bangaloreAreas } from "@/data/localboardDemo";
 
 type Area = {
   name: string;
   x: number; // %
   y: number; // %
+  bestFor: string;
   audience: string;
-  types: string;
   placements: string;
+  score: number;
+  reason: string;
   size?: "sm" | "md" | "lg";
 };
 
-const areas: Area[] = [
-  { name: "Indiranagar", x: 58, y: 38, size: "lg", audience: "Premium professionals, lifestyle buyers", types: "Cafés, fitness, salons, boutique retail", placements: "Café cards, salon mirrors, apartment posters" },
-  { name: "Koramangala", x: 50, y: 55, size: "lg", audience: "Startups, students, young professionals", types: "Restaurants, coworking, cafés", placements: "Coworking screens, café cards, posters" },
-  { name: "HSR Layout", x: 60, y: 70, size: "md", audience: "Founders, families, professionals", types: "Clinics, coaching, fitness, wellness", placements: "Apartment posters, clinic counters" },
-  { name: "Whitefield", x: 86, y: 45, size: "md", audience: "IT, enterprise, gated communities", types: "IT parks, apartments, offices", placements: "Office screens, gated society boards" },
-  { name: "MG Road", x: 45, y: 30, size: "md", audience: "High footfall, weekend discovery", types: "Cafés, retail, nightlife, events", placements: "Street-level posters, café tables" },
-  { name: "Church Street", x: 42, y: 33, size: "sm", audience: "Footfall, evening crowds", types: "Cafés, bars, retail", placements: "Café tables, retail counters" },
-  { name: "Domlur", x: 52, y: 42, size: "sm", audience: "Lifestyle residents, professionals", types: "Cafés, gyms, salons", placements: "Apartment posters, gym mirrors" },
-  { name: "Jayanagar", x: 32, y: 65, size: "md", audience: "Families, legacy locals", types: "Clinics, coaching, retail", placements: "Clinic counters, school zones" },
-  { name: "JP Nagar", x: 36, y: 75, size: "sm", audience: "Families, professionals", types: "Retail, clinics, fitness", placements: "Apartment boards, retail counters" },
-  { name: "Bellandur", x: 72, y: 60, size: "sm", audience: "IT residents, gated communities", types: "Apartments, coworking, gyms", placements: "Society boards, gym mirrors" },
-];
+const areas: Area[] = bangaloreAreas;
 
 const sizeMap = { sm: "w-2 h-2", md: "w-3 h-3", lg: "w-4 h-4" };
 
@@ -34,15 +26,26 @@ export const BangaloreMap = () => {
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="max-w-2xl">
           <span className="text-xs font-mono uppercase tracking-widest text-primary">
-            02 — City-native
+            03: City-native
           </span>
           <h2 className="mt-4 font-display text-4xl md:text-5xl tracking-tight text-balance">
             Built for Bangalore's local attention map.
           </h2>
           <p className="mt-4 text-lg font-light text-muted-foreground">
-            LocalBoard starts with Bangalore's high-value neighborhoods and recommends where your
-            business should be seen.
+            LocalBoard does not just generate ads. It recommends where your audience actually moves,
+            waits, works, eats, and discovers.
           </p>
+        </div>
+
+        <div className="mt-8 flex flex-wrap gap-2">
+          {audienceFilters.map((filter) => (
+            <button
+              key={filter}
+              className="text-xs font-light px-3 py-1.5 rounded-full border border-border bg-card hover:border-primary/40 transition"
+            >
+              {filter}
+            </button>
+          ))}
         </div>
 
         <div className="mt-14 grid lg:grid-cols-5 gap-6">
@@ -108,26 +111,40 @@ export const BangaloreMap = () => {
               <dl className="mt-6 space-y-5">
                 <div>
                   <dt className="text-xs font-light text-muted-foreground uppercase tracking-wider">
-                    Best audience
+                    Match score
+                  </dt>
+                  <dd className="mt-1 font-display text-3xl tracking-tight">
+                    {hover?.score}/100
+                  </dd>
+                </div>
+                <div>
+                  <dt className="text-xs font-light text-muted-foreground uppercase tracking-wider">
+                    Best for
+                  </dt>
+                  <dd className="mt-1 font-light">{hover?.bestFor}</dd>
+                </div>
+                <div>
+                  <dt className="text-xs font-light text-muted-foreground uppercase tracking-wider">
+                    Audience
                   </dt>
                   <dd className="mt-1 font-light">{hover?.audience}</dd>
                 </div>
                 <div>
                   <dt className="text-xs font-light text-muted-foreground uppercase tracking-wider">
-                    Best campaign types
+                    Suggested placements
                   </dt>
-                  <dd className="mt-1 font-light">{hover?.types}</dd>
+                  <dd className="mt-1 font-light">{hover?.placements}</dd>
                 </div>
                 <div>
                   <dt className="text-xs font-light text-muted-foreground uppercase tracking-wider">
-                    Example placements
+                    Why it works
                   </dt>
-                  <dd className="mt-1 font-light">{hover?.placements}</dd>
+                  <dd className="mt-1 font-light">{hover?.reason}</dd>
                 </div>
               </dl>
 
               <div className="mt-8 pt-6 border-t border-border/60 text-sm font-light text-muted-foreground">
-                Hover any pin — the agent maps each area to your business profile.
+                Hover any pin. The agent maps each area to your business profile.
               </div>
             </div>
           </div>

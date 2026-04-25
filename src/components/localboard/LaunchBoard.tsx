@@ -1,6 +1,8 @@
+import type { ReactNode } from "react";
 import { Check } from "lucide-react";
+import { sampleCampaign } from "@/data/localboardDemo";
 
-const stages = ["Planning", "Creative ready", "Outreach ready", "Ready to launch"];
+const stages = ["Planning", "Creative Ready", "Vendor Approval", "Live", "Completed"];
 
 export const LaunchBoard = () => {
   return (
@@ -8,13 +10,14 @@ export const LaunchBoard = () => {
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-2xl">
           <span className="text-xs font-mono uppercase tracking-widest text-primary">
-            06 — The output
+            06: Tracking
           </span>
           <h2 className="mt-4 font-display text-4xl md:text-5xl tracking-tight text-balance">
-            Every campaign gets a launch board.
+            Offline campaigns should feel as trackable as digital ads.
           </h2>
           <p className="mt-4 text-lg font-light text-muted-foreground">
-            Track what the agent created and what is ready to launch.
+            Track the campaign status, budget, placements, leads, QR scans, proof uploads, and the
+            next best action from one launch board.
           </p>
         </div>
 
@@ -30,19 +33,19 @@ export const LaunchBoard = () => {
                   <div className="flex items-center gap-2">
                     <div
                       className={`w-7 h-7 rounded-full grid place-items-center text-xs ${
-                        i < 3
+                        i < 4
                           ? "bg-primary text-primary-foreground"
                           : "bg-secondary text-muted-foreground border border-border"
                       }`}
                     >
-                      {i < 3 ? <Check className="w-3.5 h-3.5" /> : i + 1}
+                      {i < 4 ? <Check className="w-3.5 h-3.5" /> : i + 1}
                     </div>
-                    <span className={`text-sm font-light ${i < 3 ? "text-foreground" : "text-muted-foreground"}`}>
+                    <span className={`text-sm font-light ${i < 4 ? "text-foreground" : "text-muted-foreground"}`}>
                       {stage}
                     </span>
                   </div>
                   {i < stages.length - 1 && (
-                    <div className={`w-6 md:w-12 h-px ${i < 2 ? "bg-primary" : "bg-border"}`} />
+                    <div className={`w-6 md:w-12 h-px ${i < 3 ? "bg-primary" : "bg-border"}`} />
                   )}
                 </div>
               ))}
@@ -53,45 +56,52 @@ export const LaunchBoard = () => {
           <div className="mt-5 grid md:grid-cols-3 gap-4">
             <Widget title="Area plan">
               <div className="flex flex-wrap gap-1.5">
-                {["Indiranagar", "Domlur", "Koramangala"].map((a) => (
-                  <span key={a} className="text-xs font-light px-2.5 py-1 rounded-full bg-secondary">{a}</span>
+                {sampleCampaign.recommendedAreas.map((a) => (
+                  <span key={a.name} className="text-xs font-light px-2.5 py-1 rounded-full bg-secondary">{a.name}</span>
                 ))}
+              </div>
+              <div className="mt-4 text-sm font-light text-muted-foreground">
+                Budget: <span className="text-foreground">{sampleCampaign.budget}</span>
               </div>
             </Widget>
 
             <Widget title="Placement mix">
               <div className="grid grid-cols-2 gap-2 text-sm font-light">
-                <Stat label="Cafés" value="6" />
-                <Stat label="Salons" value="4" />
-                <Stat label="Apartments" value="3" />
-                <Stat label="Coworking" value="2" />
+                {sampleCampaign.placements.map((placement) => (
+                  <Stat key={placement.type} label={placement.type.replace(" table cards", "").replace(" mirror stickers", "").replace(" posters", "").replace(" lobby screens", "")} value={String(placement.count)} />
+                ))}
+              </div>
+              <div className="mt-3 text-xs font-light text-muted-foreground">
+                {sampleCampaign.tracking.placementsTotal} total · {sampleCampaign.tracking.placementsConfirmed} confirmed · {sampleCampaign.tracking.placementsPending} pending
               </div>
             </Widget>
 
             <Widget title="Creative assets">
               <ul className="text-sm font-light space-y-1.5">
-                <li className="flex items-center gap-2"><Dot /> Poster copy</li>
-                <li className="flex items-center gap-2"><Dot /> Table card copy</li>
-                <li className="flex items-center gap-2"><Dot /> WhatsApp flyer</li>
-                <li className="flex items-center gap-2"><Dot /> QR landing page</li>
+                {sampleCampaign.creatives.slice(0, 4).map((creative) => (
+                  <li key={creative.format} className="flex items-center gap-2"><Dot /> {creative.format}</li>
+                ))}
               </ul>
             </Widget>
 
             <Widget title="Tracking" className="md:col-span-2">
               <div className="grid grid-cols-3 gap-3">
-                <Metric label="QR scans" value="312" trend="+18%" />
-                <Metric label="WA clicks" value="84" trend="+9%" />
-                <Metric label="Leads" value="27" trend="+24%" />
+                <Metric label="QR scans" value={String(sampleCampaign.tracking.qrScans)} trend="+18%" />
+                <Metric label="WA clicks" value={String(sampleCampaign.tracking.whatsappClicks)} trend="+9%" />
+                <Metric label="Leads" value={String(sampleCampaign.tracking.leads)} trend="+24%" />
               </div>
               <div className="mt-3 text-xs font-light text-muted-foreground">
-                Best-performing: Indiranagar café cards · 142 scans
+                Best area: {sampleCampaign.tracking.bestArea} · Best placement: {sampleCampaign.tracking.bestPlacement} · Trial bookings: {sampleCampaign.tracking.trialBookings}
               </div>
             </Widget>
 
             <Widget title="Vendor outreach">
               <div className="text-sm font-light">
-                <div className="text-2xl font-display tracking-tight text-foreground">5</div>
-                <div className="text-muted-foreground">draft messages ready for review</div>
+                <div className="text-2xl font-display tracking-tight text-foreground">{sampleCampaign.outreachDrafts.length}</div>
+                <div className="text-muted-foreground">draft messages ready for human review</div>
+                <div className="mt-2 text-xs text-muted-foreground">
+                  Proof uploads: {sampleCampaign.tracking.proofUploads}
+                </div>
               </div>
               <button className="mt-3 text-xs font-light px-3 py-1.5 rounded-full border border-border hover:bg-secondary transition">
                 Review drafts →
@@ -104,7 +114,7 @@ export const LaunchBoard = () => {
   );
 };
 
-const Widget = ({ title, children, className = "" }: { title: string; children: React.ReactNode; className?: string }) => (
+const Widget = ({ title, children, className = "" }: { title: string; children: ReactNode; className?: string }) => (
   <div className={`rounded-2xl bg-background/60 border border-border/60 p-5 ${className}`}>
     <div className="text-xs font-mono uppercase tracking-widest text-muted-foreground mb-3">{title}</div>
     {children}

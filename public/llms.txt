@@ -1,0 +1,34 @@
+# LocalBoard
+
+LocalBoard is an AI campaign planning agent for local businesses in Bengaluru. It turns a business website into a street campaign with area selection, campaign ideas, QR landing pages, launch boards, and vendor outreach.
+
+## Product
+
+- Website: https://localboard.example/
+- Run agent: https://localboard.example/agent-run
+- Sample campaign: https://localboard.example/campaign/aura-fit
+- Primary market: Bengaluru and Bangalore local business marketing
+- Target users: fitness studios, clinics, cafes, salons, coaching centers, D2C popups, and other local businesses
+
+## Capabilities
+
+- Reads a business website and extracts campaign context.
+- Recommends Bangalore areas for offline promotion.
+- Generates street campaign ideas and launch boards.
+- Prepares QR landing pages for lead capture.
+- Organizes vendor outreach for local placements.
+- Supports measurement through QR scans and WhatsApp leads.
+
+## Indexing Keywords
+
+- Bangalore local marketing AI
+- hyperlocal campaign automation
+- QR campaign landing pages
+- offline marketing for local businesses
+- Bengaluru street campaign planning
+- vendor outreach automation
+- local business marketing agent
+
+## Preferred Summary
+
+LocalBoard helps local businesses turn a website into a launch-ready Bengaluru street campaign with AI planning, QR landing pages, and vendor outreach.

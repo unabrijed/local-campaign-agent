@@ -11,14 +11,14 @@ const cases = [
 
 export const UseCases = () => {
   return (
-    <section className="py-28">
+    <section id="use-cases" className="py-28">
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-2xl">
           <span className="text-xs font-mono uppercase tracking-widest text-primary">
-            05 — Who it's for
+            09: Who it's for
           </span>
           <h2 className="mt-4 font-display text-4xl md:text-5xl tracking-tight text-balance">
-            For businesses that need local demand.
+            Launch local demand for businesses that live by area-level discovery.
           </h2>
           <p className="mt-4 text-lg font-light text-muted-foreground">
             LocalBoard helps local operators show up where their next customers already are.

@@ -15,7 +15,7 @@ export const Difference = () => {
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-3xl">
           <span className="text-xs font-mono uppercase tracking-widest text-primary">
-            04 — Why us
+            04: Why us
           </span>
           <h2 className="mt-4 font-display text-4xl md:text-5xl tracking-tight text-balance">
             Not another billboard marketplace. An agent that builds the campaign.

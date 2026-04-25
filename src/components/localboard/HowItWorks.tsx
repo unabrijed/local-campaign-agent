@@ -1,30 +1,29 @@
-import { Globe, MapPinned, Wand2, Send, LineChart } from "lucide-react";
+import { Globe, MapPinned, Wand2, Send } from "lucide-react";
 
 const steps = [
   {
     icon: Globe,
     title: "Paste your website",
-    body: "We understand your business, audience, price point, location, offer, and brand tone.",
+    agent: "Website Scout Agent",
+    body: "Reads your business, audience, pricing, offers, location, and conversion goal.",
   },
   {
     icon: MapPinned,
-    title: "Map Bangalore areas",
-    body: "The agent recommends where your campaign should show up — from Indiranagar cafés to Koramangala coworking spaces.",
+    title: "Map Bangalore attention",
+    agent: "Area Agent",
+    body: "Recommends neighborhoods and micro-zones based on audience fit, campaign goal, and budget.",
   },
   {
     icon: Wand2,
-    title: "Generate campaign assets",
-    body: "Campaign angles, poster copy, table-card copy, WhatsApp copy, QR CTAs, and landing page content.",
+    title: "Generate the campaign",
+    agent: "Creative Agent",
+    body: "Creates the campaign angle, posters, table-card copy, WhatsApp copy, QR CTA, and landing page.",
   },
   {
     icon: Send,
     title: "Prepare launch outreach",
-    body: "Vendor outreach drafts for cafés, salons, gyms, apartments, coworking spaces, and local partners.",
-  },
-  {
-    icon: LineChart,
-    title: "Track local leads",
-    body: "Every placement gets QR, WhatsApp, coupon, or landing-page tracking. Offline becomes measurable.",
+    agent: "Launch Agent",
+    body: "Prepares vendor outreach drafts, proof checklist, QR tracking, and a live campaign board.",
   },
 ];
 
@@ -34,10 +33,10 @@ export const HowItWorks = () => {
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-2xl">
           <span className="text-xs font-mono uppercase tracking-widest text-primary">
-            01 — Agent workflow
+            02: Agent workflow
           </span>
           <h2 className="mt-4 font-display text-4xl md:text-5xl tracking-tight text-balance">
-            From website to local campaign in one agent run.
+            One URL. One agent run. One launch-ready campaign.
           </h2>
           <p className="mt-4 text-lg font-light text-muted-foreground">
             LocalBoard removes the manual work of planning, writing, placing, and tracking a local
@@ -45,7 +44,7 @@ export const HowItWorks = () => {
           </p>
         </div>
 
-        <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-5 gap-4">
+        <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-4">
           {steps.map((s, i) => {
             const Icon = s.icon;
             return (
@@ -62,6 +61,9 @@ export const HowItWorks = () => {
                   </span>
                 </div>
                 <h3 className="font-display text-lg tracking-tight">{s.title}</h3>
+                <div className="mt-2 text-[11px] font-mono uppercase tracking-widest text-primary">
+                  {s.agent}
+                </div>
                 <p className="mt-2 text-sm font-light text-muted-foreground leading-relaxed">
                   {s.body}
                 </p>

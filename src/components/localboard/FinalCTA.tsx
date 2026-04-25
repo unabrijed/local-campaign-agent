@@ -1,6 +1,19 @@
+import { useState } from "react";
+import type { FormEvent } from "react";
+import { useNavigate } from "react-router-dom";
 import { ArrowRight, Globe } from "lucide-react";
+import { demoWebsiteUrl } from "@/data/localboardDemo";
 
 export const FinalCTA = () => {
+  const [url, setUrl] = useState("");
+  const navigate = useNavigate();
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const submittedUrl = url.trim() || demoWebsiteUrl;
+    navigate(`/agent-run?url=${encodeURIComponent(submittedUrl)}`);
+  };
+
   return (
     <section className="relative py-28 overflow-hidden">
       <div className="absolute inset-0 warm-bg opacity-60" />
@@ -17,23 +30,25 @@ export const FinalCTA = () => {
           </p>
 
           <div className="mt-10 max-w-xl mx-auto">
-            <div className="glass-card rounded-2xl p-2 flex flex-col sm:flex-row items-stretch gap-2">
+            <form onSubmit={handleSubmit} className="glass-card rounded-2xl p-2 flex flex-col sm:flex-row items-stretch gap-2">
               <div className="flex items-center gap-2 px-4 flex-1 min-w-0">
                 <Globe className="w-4 h-4 text-muted-foreground shrink-0" />
                 <input
                   type="url"
                   placeholder="https://yourbusiness.com"
+                  value={url}
+                  onChange={(event) => setUrl(event.target.value)}
                   className="flex-1 bg-transparent outline-none py-3 font-light placeholder:text-muted-foreground/70"
                 />
               </div>
               <button className="group inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-primary text-primary-foreground font-light hover:opacity-95 transition">
-                Run the agent
+                Run the LocalBoard Agent
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition" />
               </button>
-            </div>
-            <button className="mt-4 text-sm font-light text-muted-foreground hover:text-foreground transition">
+            </form>
+            <a href="#map" className="mt-4 inline-block text-sm font-light text-muted-foreground hover:text-foreground transition">
               or explore Bangalore areas →
-            </button>
+            </a>
           </div>
 
           <p className="mt-10 text-xs font-light text-muted-foreground/80 max-w-md mx-auto">

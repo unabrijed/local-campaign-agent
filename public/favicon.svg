@@ -1,0 +1,6 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title">
+  <title id="title">LocalBoard</title>
+  <rect width="64" height="64" rx="16" fill="#F7F1E8"/>
+  <rect x="14" y="13" width="33" height="33" rx="8" fill="#2A231F"/>
+  <circle cx="46" cy="46" r="10" fill="#DE5B2A" stroke="#F7F1E8" stroke-width="6"/>
+</svg>

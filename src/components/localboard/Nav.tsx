@@ -10,15 +10,16 @@ export const Nav = () => {
           </a>
           <nav className="hidden md:flex items-center gap-8 text-sm font-light text-muted-foreground">
             <a href="#how" className="hover:text-foreground transition">How it works</a>
-            <a href="#map" className="hover:text-foreground transition">Bangalore map</a>
-            <a href="#sample" className="hover:text-foreground transition">Sample campaign</a>
-            <a href="#difference" className="hover:text-foreground transition">Why us</a>
+            <a href="#map" className="hover:text-foreground transition">Bangalore Map</a>
+            <a href="#use-cases" className="hover:text-foreground transition">Use Cases</a>
+            <a href="#pricing" className="hover:text-foreground transition">Pricing</a>
+            <a href="#vendors" className="hover:text-foreground transition">Vendors</a>
           </nav>
           <a
-            href="#hero"
+            href="/agent-run"
             className="text-sm font-light px-4 py-1.5 rounded-full bg-foreground text-background hover:opacity-90 transition"
           >
-            Run agent
+            Run Agent
           </a>
         </div>
       </div>

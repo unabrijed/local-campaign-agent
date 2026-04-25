@@ -3,7 +3,7 @@ export const Builder = () => {
     <section className="py-28">
       <div className="mx-auto max-w-4xl px-6 text-center">
         <span className="text-xs font-mono uppercase tracking-widest text-primary">
-          07 — Builder energy
+          07: Builder energy
         </span>
         <h2 className="mt-4 font-display text-4xl md:text-5xl tracking-tight text-balance">
           Built for builders who ship.
