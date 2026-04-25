@@ -23,8 +23,7 @@ export const Hero = () => {
 
   return (
     <section id="hero" className="relative pt-32 pb-24 overflow-hidden">
-      <div className="absolute inset-0 glow-bg pointer-events-none" />
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+      <div className="absolute inset-0 warm-bg pointer-events-none opacity-60" />
 
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="grid lg:grid-cols-2 gap-14 items-center">
