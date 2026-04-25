@@ -9,6 +9,7 @@ import { Difference } from "@/components/localboard/Difference";
 import { UseCases } from "@/components/localboard/UseCases";
 import { LaunchBoard } from "@/components/localboard/LaunchBoard";
 import { VendorNetwork } from "@/components/localboard/VendorNetwork";
+import { BillboardOwners } from "@/components/localboard/BillboardOwners";
 import { Pricing } from "@/components/localboard/Pricing";
 import { FinalCTA } from "@/components/localboard/FinalCTA";
 import { Footer } from "@/components/localboard/Footer";
@@ -22,7 +23,7 @@ const Index = () => {
       Object.assign(document.createElement("meta"), { name: "description" });
     meta.setAttribute(
       "content",
-      "LocalBoard is an AI agent that turns any business website into a launch-ready Bangalore street campaign: areas, creatives, QR pages, and vendor outreach.",
+      "LocalBoard is an AI agent that turns any business website into a launch-ready Bangalore street campaign: hotspots, billboards, creatives, QR pages, and vendor outreach.",
     );
     if (!meta.parentNode) document.head.appendChild(meta);
   }, []);
@@ -31,16 +32,17 @@ const Index = () => {
     <main className="min-h-screen bg-background">
       <Nav />
       <Hero />
-        <Problem />
+      <Problem />
       <HowItWorks />
       <BangaloreMap />
       <SampleCampaign />
-        <AgentSystem />
+      <AgentSystem />
       <LaunchBoard />
-        <UseCases />
-        <VendorNetwork />
-        <Pricing />
-        <Difference />
+      <UseCases />
+      <VendorNetwork />
+      <BillboardOwners />
+      <Pricing />
+      <Difference />
       <FinalCTA />
       <Footer />
     </main>

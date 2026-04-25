@@ -3003,14 +3003,6 @@ loupe@^3.1.0, loupe@^3.1.4:
   resolved "https://registry.yarnpkg.com/loupe/-/loupe-3.2.1.tgz#0095cf56dc5b7a9a7c08ff5b1a8796ec8ad17e76"
   integrity sha512-CdzqowRJCeLU72bHvWqwRBBlLcMEtIvGrlvef74kMnV2AolS9Y8xUv1I0U/MNAWMhBlKIoyuEgoJ0t/bbwHbLQ==
 
-lovable-tagger@^1.1.13:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/lovable-tagger/-/lovable-tagger-1.2.0.tgz#5a0d278ebb18543b8be463a0f0252e636fe671bd"
-  integrity sha512-L7Qvc51gYlJSdvdIbUrUw/gsG9JFGBWOmW9vbVYwW7sBnI436p4M50aTh3wpBrdfdR38tHavUSNYLxCm8FBesw==
-  dependencies:
-    esbuild "^0.25.0"
-    tailwindcss "^3.4.17"
-
 lucide-react@^0.462.0:
   version "0.462.0"
   resolved "https://registry.yarnpkg.com/lucide-react/-/lucide-react-0.462.0.tgz#cb95b1dde558be51b7ae247290f7bb5f197880bf"

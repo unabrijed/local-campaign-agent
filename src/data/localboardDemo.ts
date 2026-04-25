@@ -176,6 +176,94 @@ export const audienceFilters = [
   "Family audience",
   "Health and wellness audience",
   "Nightlife/event audience",
+  "High-congestion corridors",
+  "Billboard-ready junctions",
+];
+
+export const hotspots = [
+  {
+    area: "Indiranagar",
+    microZone: "100 Feet Road",
+    landmark: "Near 12th Main signal",
+    crowdType: "premium shoppers, cafe visitors, founders, creators",
+    congestion: "High",
+    bestTime: "5 PM to 10 PM",
+    suggestedPlacement: "Road-facing billboard + cafe QR cards",
+    brandFit: "Strong for visual brands that need street-level discovery and impulse catalog scans.",
+  },
+  {
+    area: "Koramangala",
+    microZone: "5th Block",
+    landmark: "Cafe and college route cluster",
+    crowdType: "students, startup teams, food crowd, young professionals",
+    congestion: "High",
+    bestTime: "4 PM to 11 PM",
+    suggestedPlacement: "Junction billboard + event flyers",
+    brandFit: "Good for custom merch drops, college fests, creator brands, cafes, and popups.",
+  },
+  {
+    area: "MG Road + Church Street",
+    microZone: "Church Street weekend stretch",
+    landmark: "Metro exit and cafe corridor",
+    crowdType: "weekend shoppers, creators, tourists, nightlife crowd",
+    congestion: "Very high",
+    bestTime: "Friday evening to Sunday night",
+    suggestedPlacement: "Street-adjacent hoarding + QR flyer handouts",
+    brandFit: "Best for high-recall launch moments, event discovery, fashion, merch, and D2C popups.",
+  },
+];
+
+export const billboardInventory = [
+  {
+    title: "100 Feet Road Signal Board",
+    area: "Indiranagar",
+    microZone: "12th Main signal",
+    placementType: "Road-facing billboard",
+    visibility: "Signal wait visibility, two-way vehicle flow",
+    weeklyPrice: "₹18,000/week",
+    estimatedFootfall: "42,000 weekly passersby",
+    audienceTags: ["premium lifestyle", "founders", "cafe crowd", "creators"],
+    ownerStatus: "Owner details ready for review",
+    position: { x: 58, y: 38 },
+    reason: "Shoonya Store gets visual recall before shoppers enter cafes and boutique retail lanes.",
+  },
+  {
+    title: "Koramangala 5th Block Corner Board",
+    area: "Koramangala",
+    microZone: "5th Block cafe lane",
+    placementType: "Junction hoarding",
+    visibility: "Pedestrian plus two-wheeler slowdown",
+    weeklyPrice: "₹14,500/week",
+    estimatedFootfall: "38,000 weekly passersby",
+    audienceTags: ["students", "startup teams", "young professionals"],
+    ownerStatus: "Available this week",
+    position: { x: 50, y: 55 },
+    reason: "Strong match for college groups, creator crews, and startup team merch orders.",
+  },
+  {
+    title: "Church Street Metro Exit Panel",
+    area: "MG Road + Church Street",
+    microZone: "Metro exit corridor",
+    placementType: "Street-adjacent display panel",
+    visibility: "Weekend pedestrian discovery",
+    weeklyPrice: "₹21,000/week",
+    estimatedFootfall: "55,000 weekly passersby",
+    audienceTags: ["weekend shoppers", "creators", "nightlife", "tourists"],
+    ownerStatus: "Pending owner confirmation",
+    position: { x: 44, y: 32 },
+    reason: "High-attention weekend corridor for a limited merch drop and popup reservation CTA.",
+  },
+];
+
+export const ownerListingFields = [
+  "Board or space name",
+  "Area and micro-zone",
+  "Nearest landmark",
+  "Placement type",
+  "Estimated weekly footfall",
+  "Audience tags",
+  "Weekly price",
+  "Owner contact",
 ];
 
 export const sampleCampaign = {
@@ -209,11 +297,13 @@ export const sampleCampaign = {
     },
   ],
   placements: [
+    { type: "Road-facing billboards", count: 2, cost: "₹32,500", status: "Owner review" },
     { type: "Cafe table cards", count: 6, cost: "₹4,800", status: "Confirmed" },
     { type: "Boutique counter cards", count: 4, cost: "₹3,600", status: "Confirmed" },
     { type: "Event flyers", count: 3, cost: "₹2,700", status: "Pending" },
-    { type: "Coworking lobby screens", count: 2, cost: "₹4,000", status: "Confirmed" },
   ],
+  hotspots,
+  billboardRecommendations: billboardInventory,
   creatives: [
     {
       format: "Poster copy",
@@ -308,7 +398,7 @@ export const agentModules = [
   },
   {
     name: "Area Intelligence Agent",
-    body: "Matches the business to Bangalore neighborhoods and micro-zones using category, audience, intent, and placement fit.",
+    body: "Matches the business to Bangalore neighborhoods, hotspots, congestion corridors, and micro-zones using audience, intent, and placement fit.",
   },
   {
     name: "Campaign Creative Agent",
@@ -316,7 +406,7 @@ export const agentModules = [
   },
   {
     name: "Placement Match Agent",
-    body: "Recommends cafes, salons, gyms, apartments, coworking spaces, events, and local venue types.",
+    body: "Recommends billboards, hoardings, cafes, salons, gyms, apartments, coworking spaces, events, and local venue types.",
   },
   {
     name: "Launch Ops Agent",
@@ -329,6 +419,9 @@ export const agentModules = [
 ];
 
 export const vendorPlacementTypes = [
+  "Road-facing billboards",
+  "Junction hoardings",
+  "Metro exit panels",
   "Cafe table cards",
   "Counter cards",
   "Posters",

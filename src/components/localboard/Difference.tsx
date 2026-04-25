@@ -1,12 +1,12 @@
 import { Check, X } from "lucide-react";
 
 const rows = [
-  ["Area selection", "Manual, by media buyers", "AI recommends Bangalore areas"],
-  ["Placements", "Mostly billboards & hoardings", "Cafés, salons, gyms, apartments, coworking, events"],
+  ["Area selection", "Manual, by media buyers", "AI recommends Bangalore hotspots"],
+  ["Placements", "Static inventory browsing", "Billboards, hoardings, cafés, salons, gyms, apartments, coworking, events"],
   ["Creatives", "User brings their own", "AI generates posters, copy, CTAs"],
-  ["Vendor coordination", "Manual outreach", "Agent prepares vendor outreach drafts"],
+  ["Owner coordination", "Manual outreach", "Agent prepares board-owner and vendor outreach drafts"],
   ["Tracking", "Weak / impressions only", "QR, WhatsApp, coupons, landing pages"],
-  ["Built for", "Media buyers", "Local businesses, founders, operators"],
+  ["Built for", "Media buyers", "Advertisers, board owners, founders, operators"],
 ];
 
 export const Difference = () => {
@@ -18,11 +18,11 @@ export const Difference = () => {
             04: Why us
           </span>
           <h2 className="mt-4 font-display text-4xl md:text-5xl tracking-tight text-balance">
-            Not another billboard marketplace. An agent that builds the campaign.
+            More than a billboard marketplace. An agent that builds the campaign.
           </h2>
           <p className="mt-4 text-lg font-light text-muted-foreground">
-            LocalBoard is not just for booking ad spaces. It plans, creates, prepares, and tracks
-            your local campaign.
+            LocalBoard is not just for browsing ad spaces. It matches brands to hotspots and board
+            inventory, then plans, creates, prepares, and tracks the local campaign.
           </p>
         </div>
 

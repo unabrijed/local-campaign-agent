@@ -1,3 +1,12 @@
+declare const Deno: {
+  serve: (
+    handler: (req: Request) => Response | Promise<Response>,
+  ) => void;
+  env: {
+    get: (key: string) => string | undefined;
+  };
+};
+
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
@@ -20,6 +29,30 @@ type Creative = {
   headline: string;
   body: string;
   cta: string;
+};
+
+type Hotspot = {
+  area: string;
+  microZone: string;
+  landmark: string;
+  crowdType: string;
+  congestion: string;
+  bestTime: string;
+  suggestedPlacement: string;
+  brandFit: string;
+};
+
+type BillboardRecommendation = {
+  title: string;
+  area: string;
+  microZone: string;
+  placementType: string;
+  visibility: string;
+  weeklyPrice: string;
+  estimatedFootfall: string;
+  audienceTags: string[];
+  ownerStatus: string;
+  reason: string;
 };
 
 type AgentResult = {
@@ -53,6 +86,8 @@ type AgentResult = {
   };
   recommendedAreas: AreaRecommendation[];
   placements: string[];
+  hotspots: Hotspot[];
+  billboardRecommendations: BillboardRecommendation[];
   creatives: Creative[];
   outreachDrafts: Array<{
     type: string;
@@ -171,6 +206,32 @@ Return strict JSON only with this exact shape:
     { "name": "string", "score": 90, "reason": "string" }
   ],
   "placements": ["string"],
+  "hotspots": [
+    {
+      "area": "string",
+      "microZone": "string",
+      "landmark": "string",
+      "crowdType": "string",
+      "congestion": "High",
+      "bestTime": "string",
+      "suggestedPlacement": "string",
+      "brandFit": "string"
+    }
+  ],
+  "billboardRecommendations": [
+    {
+      "title": "string",
+      "area": "string",
+      "microZone": "string",
+      "placementType": "Road-facing billboard",
+      "visibility": "string",
+      "weeklyPrice": "₹15000/week",
+      "estimatedFootfall": "string",
+      "audienceTags": ["string"],
+      "ownerStatus": "Available / Owner review / Pending confirmation",
+      "reason": "string"
+    }
+  ],
   "creatives": [
     { "format": "Poster copy", "headline": "string", "body": "string", "cta": "string" }
   ],
@@ -180,6 +241,8 @@ Return strict JSON only with this exact shape:
 }
 
 Use Bangalore neighborhoods. Prefer Indiranagar, Koramangala, HSR Layout, Domlur, MG Road, Church Street, Whitefield, Jayanagar, JP Nagar, Bellandur, Marathahalli, Kalyan Nagar where relevant.
+For hotspots and billboardRecommendations, evaluate traffic congestion, pedestrian/vehicle movement, crowd type, nearby landmarks, board visibility, expected attention, and why the brand fits that placement.
+Include billboards, hoardings, metro panels, signal boards, and local placements where appropriate.
 Do not claim outreach has been sent. Draft only.
 Budget hint: ${budget ? `₹${budget}` : "starter ₹15,000"}.
 
@@ -273,6 +336,8 @@ function buildHeuristicResult(
     },
     recommendedAreas: recommendAreas(category, location),
     placements: recommendPlacements(category),
+    hotspots: buildHotspots(category, location),
+    billboardRecommendations: buildBillboardRecommendations(category, location),
     creatives: buildCreatives(category, businessName, location, offer, cta),
     outreachDrafts: buildOutreachDrafts(businessName, category, location),
   };
@@ -446,11 +511,90 @@ function recommendAreas(category: string, location: string): AreaRecommendation[
 }
 
 function recommendPlacements(category: string) {
-  if (category === "Fitness studio") return ["Cafe table cards", "Salon mirror stickers", "Apartment posters", "Coworking lobby screens"];
-  if (category === "Clinic") return ["Salon counter cards", "Apartment noticeboards", "Office-adjacent cafes", "Clinic referral cards"];
-  if (category === "Cafe or restaurant") return ["PG posters", "Coworking lobby cards", "Event flyers", "Office pantry inserts"];
-  if (category === "Salon or spa") return ["Cafe table cards", "Gym reception standees", "Apartment posters", "Boutique store placements"];
-  return ["Cafe table cards", "Apartment noticeboards", "Coworking lobby screens", "Retail counter cards"];
+  if (category === "Fitness studio") return ["Signal billboards", "Cafe table cards", "Salon mirror stickers", "Coworking lobby screens"];
+  if (category === "Clinic") return ["Office corridor billboards", "Salon counter cards", "Apartment noticeboards", "Clinic referral cards"];
+  if (category === "Cafe or restaurant") return ["Junction hoardings", "PG posters", "Coworking lobby cards", "Event flyers"];
+  if (category === "Salon or spa") return ["Lifestyle corridor billboards", "Cafe table cards", "Gym reception standees", "Boutique store placements"];
+  return ["Road-facing billboards", "Cafe table cards", "Coworking lobby screens", "Retail counter cards"];
+}
+
+function buildHotspots(category: string, location: string): Hotspot[] {
+  const primaryPlacement =
+    category === "Cafe or restaurant" ? "junction hoarding + PG posters" : "road-facing billboard + QR cards";
+
+  return [
+    {
+      area: location,
+      microZone: location === "Indiranagar" ? "100 Feet Road" : "primary commercial stretch",
+      landmark: location === "Indiranagar" ? "12th Main signal" : `${location} high-street junction`,
+      crowdType: inferAudience(category, location),
+      congestion: "High",
+      bestTime: "5 PM to 10 PM",
+      suggestedPlacement: primaryPlacement,
+      brandFit: "Best for repeated visual recall during signal waits, evening walks, and local discovery moments.",
+    },
+    {
+      area: "Koramangala",
+      microZone: "5th Block",
+      landmark: "Cafe and college route cluster",
+      crowdType: "students, startup teams, food crowd, and young professionals",
+      congestion: "High",
+      bestTime: "4 PM to 11 PM",
+      suggestedPlacement: "junction hoarding + event flyers",
+      brandFit: "Useful when the brand needs creator, student, and founder attention in the same zone.",
+    },
+    {
+      area: "MG Road + Church Street",
+      microZone: "Metro exit corridor",
+      landmark: "Church Street weekend stretch",
+      crowdType: "weekend shoppers, creators, tourists, and nightlife crowd",
+      congestion: "Very high",
+      bestTime: "Friday evening to Sunday night",
+      suggestedPlacement: "street-adjacent display panel + QR flyers",
+      brandFit: "Strong for high-recall launch campaigns and brands with visual products or offers.",
+    },
+  ];
+}
+
+function buildBillboardRecommendations(category: string, location: string): BillboardRecommendation[] {
+  return [
+    {
+      title: `${location} Signal Board`,
+      area: location,
+      microZone: location === "Indiranagar" ? "12th Main signal" : "main commercial signal",
+      placementType: "Road-facing billboard",
+      visibility: "Signal wait visibility with two-way vehicle flow",
+      weeklyPrice: "₹18,000/week",
+      estimatedFootfall: "42,000 weekly passersby",
+      audienceTags: [inferPricePoint(category), "local discovery", "commuters", "evening crowd"],
+      ownerStatus: "Owner details ready for review",
+      reason: "Strong fit for brands that need repeated recall in a high-attention local corridor.",
+    },
+    {
+      title: "Koramangala 5th Block Corner Board",
+      area: "Koramangala",
+      microZone: "5th Block cafe lane",
+      placementType: "Junction hoarding",
+      visibility: "Pedestrian plus two-wheeler slowdown",
+      weeklyPrice: "₹14,500/week",
+      estimatedFootfall: "38,000 weekly passersby",
+      audienceTags: ["students", "startup teams", "young professionals"],
+      ownerStatus: "Available this week",
+      reason: "Good for brands targeting startup teams, students, and younger urban buyers.",
+    },
+    {
+      title: "Church Street Metro Exit Panel",
+      area: "MG Road + Church Street",
+      microZone: "Metro exit corridor",
+      placementType: "Street-adjacent display panel",
+      visibility: "Weekend pedestrian discovery",
+      weeklyPrice: "₹21,000/week",
+      estimatedFootfall: "55,000 weekly passersby",
+      audienceTags: ["weekend shoppers", "creators", "nightlife", "tourists"],
+      ownerStatus: "Pending owner confirmation",
+      reason: "Best for high-footfall launch visibility, event discovery, fashion, food, merch, and D2C campaigns.",
+    },
+  ];
 }
 
 function buildCreatives(

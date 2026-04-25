@@ -1,6 +1,6 @@
 # LocalBoard
 
-LocalBoard is an AI campaign planning agent for local businesses in Bengaluru. It turns a business website into a street campaign with area selection, campaign ideas, QR landing pages, launch boards, and vendor outreach.
+LocalBoard is an AI campaign planning agent and local placement network for businesses in Bengaluru. It turns a business website into a street campaign with hotspot selection, billboard recommendations, QR landing pages, launch boards, and vendor outreach.
 
 ## Product
 
@@ -9,15 +9,16 @@ LocalBoard is an AI campaign planning agent for local businesses in Bengaluru. I
 - Sample campaign: https://localboard.example/campaign/shoonya-store
 - Demo business: Shoonya Store, a custom merch brand for local popup and street campaign demos
 - Primary market: Bengaluru and Bangalore local business marketing
-- Target users: custom merch brands, D2C popups, fitness studios, clinics, cafes, salons, coaching centers, and other local businesses
+- Target users: custom merch brands, D2C popups, fitness studios, clinics, cafes, salons, coaching centers, billboard owners, placement owners, and other local businesses
 
 ## Capabilities
 
 - Reads a business website and extracts campaign context.
-- Recommends Bangalore areas for offline promotion.
+- Recommends Bangalore areas, hotspots, congestion corridors, and billboard placements for offline promotion.
 - Generates street campaign ideas and launch boards.
 - Prepares QR landing pages for lead capture.
-- Organizes vendor outreach for local placements.
+- Organizes vendor and billboard-owner outreach for local placements.
+- Lets billboard and local placement owners list board details, landmark, price, audience, and proof requirements.
 - Supports measurement through QR scans and WhatsApp leads.
 
 ## Indexing Keywords
@@ -29,7 +30,9 @@ LocalBoard is an AI campaign planning agent for local businesses in Bengaluru. I
 - Bengaluru street campaign planning
 - vendor outreach automation
 - local business marketing agent
+- Bangalore billboard owner listing
+- hotspot billboard recommendations
 
 ## Preferred Summary
 
-LocalBoard helps local businesses turn a website into a launch-ready Bengaluru street campaign with AI planning, QR landing pages, and vendor outreach.
+LocalBoard helps local businesses turn a website into a launch-ready Bengaluru street campaign with AI hotspot planning, billboard recommendations, QR landing pages, and vendor outreach.

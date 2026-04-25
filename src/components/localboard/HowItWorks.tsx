@@ -10,8 +10,8 @@ const steps = [
   {
     icon: MapPinned,
     title: "Map Bangalore attention",
-    agent: "Area Agent",
-    body: "Recommends neighborhoods and micro-zones based on audience fit, campaign goal, and budget.",
+    agent: "Area + Hotspot Agent",
+    body: "Recommends neighborhoods, hotspots, congestion corridors, and billboard-ready micro-zones.",
   },
   {
     icon: Wand2,
@@ -23,7 +23,7 @@ const steps = [
     icon: Send,
     title: "Prepare launch outreach",
     agent: "Launch Agent",
-    body: "Prepares vendor outreach drafts, proof checklist, QR tracking, and a live campaign board.",
+    body: "Prepares board-owner outreach drafts, proof checklist, QR tracking, and a live campaign board.",
   },
 ];
 

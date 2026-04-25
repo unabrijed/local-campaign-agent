@@ -2,13 +2,15 @@
 
 ![LocalBoard logo](public/logo.svg)
 
-LocalBoard is an AI campaign planning agent for local businesses in Bengaluru. It turns any business website into a launch-ready street campaign with area selection, campaign ideas, QR landing pages, vendor outreach, launch tracking, and proof collection.
+LocalBoard is an AI campaign planning agent and local placement network for Bengaluru. It turns any business website into a launch-ready street campaign with hotspot selection, billboard and local placement recommendations, QR landing pages, vendor outreach, launch tracking, and proof collection.
 
 **Tagline:** Website in. Bangalore campaign out.
 
 ## Startup Snapshot
 
-LocalBoard helps local businesses launch offline campaigns with the speed, structure, and measurability of digital ads. A founder, clinic, cafe, studio, salon, coaching center, or popup brand can paste a website and get a campaign board built for the right local areas.
+LocalBoard helps local businesses launch offline campaigns with the speed, structure, and measurability of digital ads. A founder, clinic, cafe, studio, salon, coaching center, or popup brand can paste a website and get a campaign board built for the right local areas, hotspots, and billboard placements.
+
+LocalBoard also supports the supply side: billboard owners, hoarding operators, cafes, coworking spaces, salons, gyms, apartment managers, and venue partners can list high-attention spaces so advertisers can be matched by area, congestion, crowd type, and brand fit.
 
 The product starts with Bengaluru because local attention is neighborhood driven. Indiranagar, Koramangala, HSR Layout, Whitefield, MG Road, Jayanagar, JP Nagar, Domlur, and Bellandur each have different audiences, movement patterns, and placement opportunities.
 
@@ -18,20 +20,20 @@ Local businesses know they need visibility, but local advertising is still manua
 
 - Businesses do not know which area to target.
 - Creatives, QR pages, and WhatsApp copy take time to produce.
-- Cafe owners, apartment managers, gyms, salons, and coworking spaces are hard to coordinate.
+- Billboard owners, cafe owners, apartment managers, gyms, salons, and coworking spaces are hard to coordinate.
 - Offline campaigns are difficult to measure.
 - Small teams do not have media buyers or launch operators.
 
 ## Solution
 
-LocalBoard acts like a local campaign operator. It reads the business website, understands the offer and audience, maps the best Bengaluru areas, generates campaign creatives, prepares outreach, and organizes the launch in one board.
+LocalBoard acts like a local campaign operator. It reads the business website, understands the offer and audience, maps the best Bengaluru areas and hotspots, recommends billboards and local placements, generates campaign creatives, prepares outreach, and organizes the launch in one board.
 
 ## Product Flow
 
 1. Paste a business website.
 2. Website Scout Agent extracts the category, audience, pricing signals, offers, location, and CTA.
-3. Area Intelligence Agent recommends Bengaluru neighborhoods and micro-zones.
-4. Placement Match Agent selects local ad placements like cafes, salons, apartments, gyms, and coworking spaces.
+3. Area Intelligence Agent recommends Bengaluru neighborhoods, hotspots, congestion corridors, and micro-zones.
+4. Placement Match Agent selects local ad placements like billboards, hoardings, cafes, salons, apartments, gyms, and coworking spaces.
 5. Campaign Strategy Agent creates the campaign angle.
 6. Campaign Creative Agent writes posters, table cards, WhatsApp copy, QR CTAs, and landing page copy.
 7. Vendor Outreach Agent prepares partner outreach drafts.
@@ -46,7 +48,7 @@ The demo uses **Shoonya Store**, a custom merch brand launching a local Bangalor
 - Audience: Creators, college groups, startup teams, and streetwear buyers near Indiranagar, Koramangala, and MG Road + Church Street
 - Offer: Scan to preview the limited Bangalore drop and reserve custom merch on WhatsApp
 - Starter budget: INR 15,000
-- Placements: Cafe table cards, boutique counter cards, event flyers, coworking lobby screens
+- Placements: Road-facing billboards, cafe table cards, boutique counter cards, event flyers
 - Tracking: QR scans, WhatsApp leads, proof uploads, campaign status
 
 ## Target Customers
@@ -58,7 +60,7 @@ The demo uses **Shoonya Store**, a custom merch brand launching a local Bangalor
 - Coaching centers
 - D2C popups
 - Local retail and service businesses
-- Venue partners that want to monetize attention
+- Billboard owners and venue partners that want to monetize attention
 
 ## Brand Identity
 
@@ -111,10 +113,11 @@ Logo hex colors:
 
 ## Key Differentiation
 
-LocalBoard is not another billboard marketplace. It is an AI agent that builds the campaign and prepares the operational workflow.
+LocalBoard is not only a billboard marketplace. It is an AI agent that builds the campaign, recommends hotspots and board inventory, and prepares the operational workflow.
 
 - Area selection is AI-recommended for Bengaluru neighborhoods.
-- Placements are local and practical: cafes, salons, gyms, apartments, coworking spaces, and events.
+- Placements are local and practical: billboards, hoardings, cafes, salons, gyms, apartments, coworking spaces, and events.
+- Billboard and placement owners can list inventory with area, landmark, audience, visibility, weekly price, and proof details.
 - Creatives are generated from the business website.
 - Vendor outreach is prepared for review.
 - Tracking is built around QR scans, WhatsApp leads, coupons, landing pages, and proof uploads.
@@ -127,10 +130,10 @@ Use this README to build a short pitch deck:
 2. Problem: Local offline marketing is fragmented and hard to measure.
 3. Insight: Local attention moves by neighborhood, not only by keyword.
 4. Solution: AI agent that creates a complete Bengaluru street campaign.
-5. Product flow: Website to area plan to creatives to vendor outreach to launch board.
+5. Product flow: Website to hotspot plan to billboard match to creatives to vendor outreach to launch board.
 6. Demo: Shoonya Store, Wear Your Scene campaign.
-7. Market: Local businesses, service brands, and venue partners.
-8. Differentiation: Campaign operator, not just ad inventory.
+7. Market: Local businesses, service brands, billboard owners, and venue partners.
+8. Differentiation: Campaign operator plus hotspot intelligence, not just static ad inventory.
 9. Brand: Warm premium identity with board and signal-dot mark.
 10. Next steps: Real vendor network, live QR pages, payments, campaign analytics.
 
@@ -151,14 +154,14 @@ The frontend can run in two modes:
 1. **Demo fallback mode:** Uses static Shoonya Store campaign data from `src/data/localboardDemo.ts`.
 2. **Live extraction mode:** Calls the Supabase Edge Function at `supabase/functions/analyze-website/index.ts`.
 
-The live function is the current backend agent endpoint. It receives a website URL, fetches the site server-side, extracts title/meta/page text, and returns a campaign-ready JSON response. If an OpenAI key is configured, it uses the LLM agent path. If no OpenAI key is configured, it falls back to heuristic extraction.
+The live function is the current backend agent endpoint. It receives a website URL, fetches the site server-side, extracts title/meta/page text, and returns a campaign-ready JSON response with business context, hotspots, billboard recommendations, creatives, and outreach drafts. If an OpenAI key is configured, it uses the LLM agent path. If no OpenAI key is configured, it falls back to heuristic extraction.
 
 Frontend flow:
 
 ```text
 Homepage URL input
 -> /agent-run?url=...
--> supabase.functions.invoke("analyze-website")
+-> POST /functions/v1/analyze-website
 -> stores latest result in sessionStorage
 -> /campaign/shoonya-store renders the live result
 ```
@@ -225,7 +228,7 @@ Then test the flow:
 Notes:
 
 - The browser never fetches third-party websites directly. The Edge Function does it to avoid CORS issues.
-- Vendor inventory, QR analytics, and proof uploads are still mocked for the hackathon MVP.
+- Billboard inventory, QR analytics, and proof uploads are still mocked for the hackathon MVP.
 - Vendor outreach is draft-only. The app does not auto-send messages.
 
 ## Local Development

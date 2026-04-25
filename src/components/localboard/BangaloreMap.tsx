@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { audienceFilters, bangaloreAreas } from "@/data/localboardDemo";
+import { audienceFilters, bangaloreAreas, billboardInventory, hotspots } from "@/data/localboardDemo";
 
 type Area = {
   name: string;
@@ -33,8 +33,27 @@ export const BangaloreMap = () => {
           </h2>
           <p className="mt-4 text-lg font-light text-muted-foreground">
             LocalBoard does not just generate ads. It recommends where your audience actually moves,
-            waits, works, eats, and discovers.
+            waits, works, eats, discovers, and notices high-attention billboard inventory.
           </p>
+        </div>
+
+        <div className="mt-8 grid md:grid-cols-3 gap-4">
+          {hotspots.map((hotspot) => (
+            <div key={`${hotspot.area}-${hotspot.microZone}`} className="rounded-2xl bg-card border border-border/70 p-5">
+              <div className="text-xs font-mono uppercase tracking-widest text-muted-foreground">
+                {hotspot.congestion} congestion
+              </div>
+              <h3 className="mt-2 font-display text-xl tracking-tight">
+                {hotspot.area}: {hotspot.microZone}
+              </h3>
+              <p className="mt-2 text-sm font-light text-muted-foreground leading-relaxed">
+                {hotspot.landmark} · {hotspot.bestTime}
+              </p>
+              <div className="mt-4 text-sm font-light">
+                {hotspot.suggestedPlacement}
+              </div>
+            </div>
+          ))}
         </div>
 
         <div className="mt-8 flex flex-wrap gap-2">
@@ -147,6 +166,35 @@ export const BangaloreMap = () => {
                 Hover any pin. The agent maps each area to your business profile.
               </div>
             </div>
+          </div>
+        </div>
+
+        <div className="mt-6 glass-card rounded-3xl p-6 bg-card">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+            <div>
+              <div className="text-xs font-mono uppercase tracking-widest text-primary">
+                Sample board inventory
+              </div>
+              <h3 className="mt-2 font-display text-3xl tracking-tight">
+                Board owners can list high-attention placements.
+              </h3>
+            </div>
+            <a href="#billboard-owners" className="text-sm font-light px-4 py-2 rounded-full border border-border hover:bg-secondary transition">
+              Add your board
+            </a>
+          </div>
+          <div className="mt-6 grid md:grid-cols-3 gap-4">
+            {billboardInventory.map((board) => (
+              <div key={board.title} className="rounded-2xl bg-background/60 border border-border/70 p-4">
+                <div className="text-xs font-light uppercase tracking-wider text-muted-foreground">
+                  {board.placementType}
+                </div>
+                <div className="mt-2 font-light">{board.title}</div>
+                <div className="mt-2 text-sm font-light text-muted-foreground">
+                  {board.estimatedFootfall} · {board.weeklyPrice}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

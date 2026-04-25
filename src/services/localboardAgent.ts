@@ -40,6 +40,28 @@ export type WebsiteAgentResult = {
     reason: string;
   }>;
   placements: string[];
+  hotspots?: Array<{
+    area: string;
+    microZone: string;
+    landmark: string;
+    crowdType: string;
+    congestion: string;
+    bestTime: string;
+    suggestedPlacement: string;
+    brandFit: string;
+  }>;
+  billboardRecommendations?: Array<{
+    title: string;
+    area: string;
+    microZone: string;
+    placementType: string;
+    visibility: string;
+    weeklyPrice: string;
+    estimatedFootfall: string;
+    audienceTags: string[];
+    ownerStatus: string;
+    reason: string;
+  }>;
   creatives: Array<{
     format: string;
     headline: string;
@@ -141,6 +163,8 @@ export const getDisplayCampaign = (result: WebsiteAgentResult | null) => {
       },
       recommendedAreas: sampleCampaign.recommendedAreas,
       placements: sampleCampaign.placements.map((placement) => placement.type),
+      hotspots: sampleCampaign.hotspots,
+      billboardRecommendations: sampleCampaign.billboardRecommendations,
       creatives: sampleCampaign.creatives,
       outreachDrafts: sampleCampaign.outreachDrafts.map((draft) => ({
         type: draft.type,
@@ -158,6 +182,9 @@ export const getDisplayCampaign = (result: WebsiteAgentResult | null) => {
     campaign: result.campaign,
     recommendedAreas: result.recommendedAreas,
     placements: result.placements,
+    hotspots: result.hotspots ?? sampleCampaign.hotspots,
+    billboardRecommendations:
+      result.billboardRecommendations ?? sampleCampaign.billboardRecommendations,
     creatives: result.creatives,
     outreachDrafts: result.outreachDrafts,
     tracking: sampleCampaign.tracking,

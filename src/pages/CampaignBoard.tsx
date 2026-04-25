@@ -115,6 +115,61 @@ const CampaignBoard = () => {
             </BoardCard>
           </div>
 
+          <div className="mt-5 grid lg:grid-cols-3 gap-5">
+            <BoardCard title="Hotspot recommendations" className="lg:col-span-3">
+              <div className="grid md:grid-cols-3 gap-4">
+                {displayCampaign.hotspots.map((hotspot) => (
+                  <div key={`${hotspot.area}-${hotspot.microZone}`} className="rounded-2xl bg-background/60 border border-border/70 p-4">
+                    <div className="flex items-center justify-between gap-3">
+                      <div className="font-light">{hotspot.area}</div>
+                      <span className="text-xs font-light px-2.5 py-1 rounded-full bg-secondary">
+                        {hotspot.congestion}
+                      </span>
+                    </div>
+                    <div className="mt-2 text-sm font-light text-muted-foreground">
+                      {hotspot.microZone} · {hotspot.landmark}
+                    </div>
+                    <div className="mt-3 text-sm font-light">
+                      {hotspot.suggestedPlacement}
+                    </div>
+                    <p className="mt-3 text-sm font-light text-muted-foreground leading-relaxed">
+                      {hotspot.brandFit}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </BoardCard>
+          </div>
+
+          <BoardCard title="Billboard recommendations" className="mt-5">
+            <div className="grid lg:grid-cols-3 gap-4">
+              {displayCampaign.billboardRecommendations.map((board) => (
+                <div key={board.title} className="rounded-2xl bg-background/60 border border-border/70 p-4">
+                  <div className="text-xs font-light uppercase tracking-wider text-muted-foreground">
+                    {board.placementType} · {board.area}
+                  </div>
+                  <h3 className="mt-2 font-display text-xl tracking-tight">{board.title}</h3>
+                  <div className="mt-3 grid grid-cols-2 gap-3 text-sm font-light">
+                    <div>
+                      <div className="text-xs text-muted-foreground">Footfall</div>
+                      <div>{board.estimatedFootfall}</div>
+                    </div>
+                    <div>
+                      <div className="text-xs text-muted-foreground">Weekly cost</div>
+                      <div>{board.weeklyPrice}</div>
+                    </div>
+                  </div>
+                  <p className="mt-3 text-sm font-light text-muted-foreground leading-relaxed">
+                    {board.reason}
+                  </p>
+                  <div className="mt-3 text-xs font-light text-muted-foreground">
+                    {board.ownerStatus}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </BoardCard>
+
           <div className="mt-5 grid lg:grid-cols-4 gap-5">
             {displayCampaign.placements.map((placement, index) => (
               <BoardCard key={placement} title={placement}>

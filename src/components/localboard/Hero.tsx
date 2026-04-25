@@ -49,8 +49,8 @@ export const Hero = () => {
 
             <p className="mt-6 text-lg font-light text-muted-foreground max-w-xl leading-relaxed">
               LocalBoard is an AI agent that reads your business, picks the right Bangalore areas,
-              generates campaign ideas, creates QR landing pages, and prepares vendor outreach, all
-              in one run.
+              recommends hotspots and billboard placements, creates QR landing pages, and prepares
+              vendor outreach, all in one run.
             </p>
 
             {/* URL input */}
