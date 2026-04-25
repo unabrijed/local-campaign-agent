@@ -1,15 +1,12 @@
-import { MapPin } from "lucide-react";
+import { Logo } from "./Logo";
 
 export const Nav = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       <div className="mx-auto max-w-7xl px-6 py-4">
         <div className="glass-card rounded-full px-5 py-2.5 flex items-center justify-between">
-          <a href="#" className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-lg bg-gradient-primary grid place-items-center shadow-glow">
-              <MapPin className="w-3.5 h-3.5 text-primary-foreground" strokeWidth={2.2} />
-            </div>
-            <span className="font-display text-lg tracking-tight">localboard</span>
+          <a href="#" aria-label="LocalBoard home">
+            <Logo />
           </a>
           <nav className="hidden md:flex items-center gap-8 text-sm font-light text-muted-foreground">
             <a href="#how" className="hover:text-foreground transition">How it works</a>
