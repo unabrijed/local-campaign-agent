@@ -1,4 +1,4 @@
-import { MapPin } from "lucide-react";
+import { Logo } from "./Logo";
 
 const cols = [
   { title: "Product", items: ["Run agent", "Sample campaign", "Bangalore map", "Launch board"] },
@@ -8,16 +8,11 @@ const cols = [
 
 export const Footer = () => {
   return (
-    <footer className="border-t border-border/70 bg-card/40">
+    <footer className="border-t border-border/70 bg-card">
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid md:grid-cols-4 gap-10">
           <div>
-            <div className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-lg bg-gradient-primary grid place-items-center">
-                <MapPin className="w-3.5 h-3.5 text-primary-foreground" strokeWidth={2.2} />
-              </div>
-              <span className="font-display text-lg tracking-tight">localboard</span>
-            </div>
+            <Logo />
             <p className="mt-4 text-sm font-light text-muted-foreground max-w-xs">
               Website in. Bangalore campaign out.
             </p>

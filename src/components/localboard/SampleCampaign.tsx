@@ -49,7 +49,7 @@ export const SampleCampaign = () => {
           </p>
         </div>
 
-        <div className="mt-12 glass-card rounded-3xl p-8 md:p-10 bg-gradient-board">
+        <div className="mt-12 glass-card rounded-3xl p-8 md:p-10 bg-card">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 pb-6 border-b border-border/60">
             <div>
               <div className="text-xs font-mono uppercase tracking-widest text-muted-foreground">
@@ -89,7 +89,7 @@ export const SampleCampaign = () => {
             })}
           </div>
 
-          <div className="mt-6 rounded-2xl border border-border/70 p-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4 bg-gradient-warm">
+          <div className="mt-6 rounded-2xl border border-border/70 p-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4 warm-bg">
             <div className="flex items-center gap-3">
               <LineChart className="w-5 h-5 text-primary" strokeWidth={1.5} />
               <div>

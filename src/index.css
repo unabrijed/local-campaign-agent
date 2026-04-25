@@ -49,12 +49,10 @@
 
     --radius: 1rem;
 
-    /* Gradients */
-    --gradient-warm: linear-gradient(135deg, hsl(36 60% 96%) 0%, hsl(28 70% 92%) 50%, hsl(18 80% 90%) 100%);
-    --gradient-primary: linear-gradient(135deg, hsl(18 80% 56%) 0%, hsl(28 88% 60%) 100%);
-    --gradient-glow: radial-gradient(circle at 30% 20%, hsl(28 90% 88% / 0.8), transparent 60%),
-                     radial-gradient(circle at 80% 70%, hsl(18 80% 86% / 0.6), transparent 55%);
-    --gradient-board: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(36 40% 98%) 100%);
+    /* Solid surface tones (no gradients) */
+    --surface-warm: 32 40% 95%;
+    --surface-soft: 34 30% 96%;
+    --surface-board: 0 0% 100%;
 
     /* Shadows */
     --shadow-soft: 0 1px 2px hsl(24 30% 30% / 0.04), 0 8px 24px -12px hsl(24 30% 30% / 0.10);
@@ -96,16 +94,16 @@
 
 @layer components {
   .glass-card {
-    @apply bg-card/70 backdrop-blur-xl border border-border/60;
+    @apply bg-card border border-border/60;
     box-shadow: var(--shadow-card);
   }
 
   .warm-bg {
-    background: var(--gradient-warm);
+    background: hsl(var(--surface-warm));
   }
 
-  .glow-bg {
-    background: var(--gradient-glow);
+  .soft-bg {
+    background: hsl(var(--surface-soft));
   }
 
   .terminal-line {

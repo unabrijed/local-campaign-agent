@@ -33,7 +33,7 @@ export const UseCases = () => {
                 key={c.title}
                 className="group rounded-2xl bg-card border border-border/70 p-6 hover:shadow-card hover:-translate-y-0.5 transition-all duration-300"
               >
-                <div className="w-11 h-11 rounded-xl bg-gradient-warm grid place-items-center border border-border/50 group-hover:scale-105 transition">
+                <div className="w-11 h-11 rounded-xl warm-bg grid place-items-center border border-border/50 group-hover:scale-105 transition">
                   <Icon className="w-4 h-4 text-primary" strokeWidth={1.5} />
                 </div>
                 <h3 className="mt-5 font-display text-xl tracking-tight">{c.title}</h3>

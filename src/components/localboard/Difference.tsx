@@ -11,7 +11,7 @@ const rows = [
 
 export const Difference = () => {
   return (
-    <section id="difference" className="py-28 bg-gradient-warm">
+    <section id="difference" className="py-28 warm-bg">
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-3xl">
           <span className="text-xs font-mono uppercase tracking-widest text-primary">
@@ -52,7 +52,7 @@ export const Difference = () => {
 
           {/* LocalBoard */}
           <div className="relative rounded-3xl p-7 bg-card border-2 border-primary/30 shadow-card">
-            <div className="absolute -top-3 left-7 text-[10px] font-medium uppercase tracking-widest px-3 py-1 rounded-full bg-gradient-primary text-primary-foreground">
+            <div className="absolute -top-3 left-7 text-[10px] font-medium uppercase tracking-widest px-3 py-1 rounded-full bg-primary text-primary-foreground">
               LocalBoard
             </div>
             <div className="flex items-center gap-2 pb-5 border-b border-border/70">
@@ -80,7 +80,7 @@ export const Difference = () => {
         <div className="mt-12 text-center">
           <p className="font-display text-3xl md:text-4xl tracking-tight text-balance">
             Google Ads knows keywords.{" "}
-            <span className="bg-gradient-primary bg-clip-text text-transparent">
+            <span className="text-primary">
               LocalBoard knows streets.
             </span>
           </p>
