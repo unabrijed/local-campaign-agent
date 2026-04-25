@@ -18,11 +18,10 @@ export default {
         display: ['Space Grotesk', 'Inter', 'sans-serif'],
         mono: ['ui-monospace', 'SFMono-Regular', 'monospace'],
       },
-      backgroundImage: {
-        'gradient-warm': 'var(--gradient-warm)',
-        'gradient-primary': 'var(--gradient-primary)',
-        'gradient-glow': 'var(--gradient-glow)',
-        'gradient-board': 'var(--gradient-board)',
+      backgroundColor: {
+        'surface-warm': 'hsl(var(--surface-warm))',
+        'surface-soft': 'hsl(var(--surface-soft))',
+        'surface-board': 'hsl(var(--surface-board))',
       },
       boxShadow: {
         soft: 'var(--shadow-soft)',
