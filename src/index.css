@@ -1,96 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=Space+Grotesk:wght@300;400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* LocalBoard — Light, warm, premium design system. All colors HSL. */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Warm canvas */
+    --background: 36 38% 97%;
+    --foreground: 24 14% 14%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 24 14% 14%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 24 14% 14%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary: warm terracotta / amber-orange */
+    --primary: 18 75% 52%;
+    --primary-foreground: 36 38% 98%;
+    --primary-glow: 22 90% 62%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary: soft sand */
+    --secondary: 36 30% 92%;
+    --secondary-foreground: 24 14% 14%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 34 22% 94%;
+    --muted-foreground: 24 8% 42%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent: warm honey */
+    --accent: 38 80% 56%;
+    --accent-foreground: 24 14% 14%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Map / cool counter-tone */
+    --map: 196 70% 48%;
+    --map-foreground: 36 38% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --success: 142 50% 42%;
 
-    --radius: 0.5rem;
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 36 38% 98%;
 
-    --sidebar-background: 0 0% 98%;
+    --border: 30 18% 88%;
+    --input: 30 18% 88%;
+    --ring: 18 75% 52%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    --radius: 1rem;
 
-    --sidebar-primary: 240 5.9% 10%;
+    /* Gradients */
+    --gradient-warm: linear-gradient(135deg, hsl(36 60% 96%) 0%, hsl(28 70% 92%) 50%, hsl(18 80% 90%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(18 80% 56%) 0%, hsl(28 88% 60%) 100%);
+    --gradient-glow: radial-gradient(circle at 30% 20%, hsl(28 90% 88% / 0.8), transparent 60%),
+                     radial-gradient(circle at 80% 70%, hsl(18 80% 86% / 0.6), transparent 55%);
+    --gradient-board: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(36 40% 98%) 100%);
 
-    --sidebar-primary-foreground: 0 0% 98%;
+    /* Shadows */
+    --shadow-soft: 0 1px 2px hsl(24 30% 30% / 0.04), 0 8px 24px -12px hsl(24 30% 30% / 0.10);
+    --shadow-glow: 0 20px 60px -20px hsl(18 75% 52% / 0.35);
+    --shadow-card: 0 1px 3px hsl(24 20% 30% / 0.04), 0 12px 40px -16px hsl(24 30% 30% / 0.12);
+    --shadow-pin: 0 0 0 6px hsl(18 75% 52% / 0.12), 0 0 0 14px hsl(18 75% 52% / 0.06);
 
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --transition-smooth: cubic-bezier(0.22, 1, 0.36, 1);
   }
 }
 
@@ -99,7 +71,95 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
-  body {
-    @apply bg-background text-foreground;
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-feature-settings: 'cv11', 'ss01', 'ss03';
   }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-weight: 300;
+    letter-spacing: -0.005em;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    font-weight: 300;
+    letter-spacing: -0.03em;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.18);
+    color: hsl(var(--foreground));
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-card/70 backdrop-blur-xl border border-border/60;
+    box-shadow: var(--shadow-card);
+  }
+
+  .warm-bg {
+    background: var(--gradient-warm);
+  }
+
+  .glow-bg {
+    background: var(--gradient-glow);
+  }
+
+  .terminal-line {
+    @apply opacity-0;
+    animation: terminal-in 0.5s var(--transition-smooth) forwards;
+  }
+
+  .map-pin {
+    box-shadow: var(--shadow-pin);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fade-in 0.7s var(--transition-smooth) forwards;
+  }
+  .animate-fade-up {
+    animation: fade-up 0.8s var(--transition-smooth) forwards;
+  }
+  .animate-pulse-soft {
+    animation: pulse-soft 2.4s ease-in-out infinite;
+  }
+  .animate-blink {
+    animation: blink 1s steps(2, start) infinite;
+  }
+  .animate-pin-pulse {
+    animation: pin-pulse 2.6s ease-out infinite;
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes terminal-in {
+  from { opacity: 0; transform: translateX(-6px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+@keyframes blink {
+  to { opacity: 0; }
+}
+@keyframes pin-pulse {
+  0% { box-shadow: 0 0 0 0 hsl(var(--primary) / 0.45); }
+  100% { box-shadow: 0 0 0 24px hsl(var(--primary) / 0); }
 }
