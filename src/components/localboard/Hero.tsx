@@ -38,7 +38,7 @@ export const Hero = () => {
             <h1 className="mt-6 font-display text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-tight text-balance">
               Turn any website into a{" "}
               <span className="relative">
-                <span className="relative z-10 bg-gradient-primary bg-clip-text text-transparent">
+                <span className="relative z-10 text-primary">
                   Bangalore
                 </span>
                 <span className="absolute -bottom-1 left-0 right-0 h-2 bg-primary/15 rounded-full -z-0" />
@@ -63,7 +63,7 @@ export const Hero = () => {
                     className="flex-1 bg-transparent outline-none py-3 text-base font-light placeholder:text-muted-foreground/70"
                   />
                 </div>
-                <button className="group inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-gradient-primary text-primary-foreground font-light shadow-glow hover:opacity-95 transition">
+                <button className="group inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-primary text-primary-foreground font-light hover:opacity-95 transition">
                   Run the LocalBoard Agent
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition" />
                 </button>
@@ -115,7 +115,7 @@ export const Hero = () => {
             </div>
 
             {/* Campaign board card overlapping */}
-            <div className="mt-4 lg:mt-0 lg:absolute lg:-bottom-10 lg:-right-6 lg:w-[78%] glass-card rounded-2xl p-5 bg-gradient-board">
+            <div className="mt-4 lg:mt-0 lg:absolute lg:-bottom-10 lg:-right-6 lg:w-[78%] glass-card rounded-2xl p-5 bg-card">
               <div className="flex items-center justify-between">
                 <div className="text-xs font-mono text-muted-foreground uppercase tracking-widest">
                   LocalBoard Campaign

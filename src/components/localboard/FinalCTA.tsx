@@ -5,10 +5,10 @@ export const FinalCTA = () => {
     <section className="relative py-28 overflow-hidden">
       <div className="absolute inset-0 glow-bg" />
       <div className="relative mx-auto max-w-5xl px-6">
-        <div className="glass-card rounded-3xl p-10 md:p-16 text-center bg-gradient-board">
+        <div className="glass-card rounded-3xl p-10 md:p-16 text-center bg-card">
           <h2 className="font-display text-4xl md:text-6xl tracking-tight text-balance leading-[1.05]">
             Your next customer may be{" "}
-            <span className="bg-gradient-primary bg-clip-text text-transparent">
+            <span className="text-primary">
               three streets away.
             </span>
           </h2>
@@ -26,7 +26,7 @@ export const FinalCTA = () => {
                   className="flex-1 bg-transparent outline-none py-3 font-light placeholder:text-muted-foreground/70"
                 />
               </div>
-              <button className="group inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-gradient-primary text-primary-foreground font-light shadow-glow hover:opacity-95 transition">
+              <button className="group inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-primary text-primary-foreground font-light hover:opacity-95 transition">
                 Run the agent
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition" />
               </button>

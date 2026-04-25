@@ -54,7 +54,7 @@ export const HowItWorks = () => {
                 className="group relative rounded-2xl bg-card border border-border/70 p-6 hover:shadow-card transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="flex items-center justify-between mb-6">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-warm grid place-items-center border border-border/50">
+                  <div className="w-10 h-10 rounded-xl warm-bg grid place-items-center border border-border/50">
                     <Icon className="w-4 h-4 text-primary" strokeWidth={1.6} />
                   </div>
                   <span className="font-mono text-xs text-muted-foreground/60">

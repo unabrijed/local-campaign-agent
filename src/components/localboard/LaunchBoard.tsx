@@ -4,7 +4,7 @@ const stages = ["Planning", "Creative ready", "Outreach ready", "Ready to launch
 
 export const LaunchBoard = () => {
   return (
-    <section className="py-28 bg-gradient-warm">
+    <section className="py-28 warm-bg">
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-2xl">
           <span className="text-xs font-mono uppercase tracking-widest text-primary">
@@ -18,7 +18,7 @@ export const LaunchBoard = () => {
           </p>
         </div>
 
-        <div className="mt-12 glass-card rounded-3xl p-6 md:p-8 bg-gradient-board">
+        <div className="mt-12 glass-card rounded-3xl p-6 md:p-8 bg-card">
           {/* Status stepper */}
           <div className="rounded-2xl bg-background/60 border border-border/60 p-5">
             <div className="text-xs font-mono uppercase tracking-widest text-muted-foreground mb-4">

@@ -48,7 +48,7 @@ export const BangaloreMap = () => {
         <div className="mt-14 grid lg:grid-cols-5 gap-6">
           {/* Map */}
           <div className="lg:col-span-3">
-            <div className="relative aspect-[4/3] rounded-3xl glass-card overflow-hidden bg-gradient-board">
+            <div className="relative aspect-[4/3] rounded-3xl glass-card overflow-hidden bg-card">
               {/* faux map grid */}
               <svg className="absolute inset-0 w-full h-full opacity-40" xmlns="http://www.w3.org/2000/svg">
                 <defs>
@@ -97,7 +97,7 @@ export const BangaloreMap = () => {
 
           {/* Info panel */}
           <div className="lg:col-span-2">
-            <div className="glass-card rounded-3xl p-7 h-full bg-gradient-board">
+            <div className="glass-card rounded-3xl p-7 h-full bg-card">
               <div className="text-xs font-mono uppercase tracking-widest text-muted-foreground">
                 Hovered area
               </div>
