@@ -109,7 +109,7 @@ export const SampleCampaign = () => {
                   Tracking
                 </div>
                 <div className="mt-0.5 font-light">
-                  QR scans · WhatsApp clicks · trial bookings · area-wise source tracking
+                  QR scans · WhatsApp clicks · reserved orders · area-wise source tracking
                 </div>
               </div>
             </div>

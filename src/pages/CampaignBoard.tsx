@@ -186,7 +186,7 @@ const CampaignBoard = () => {
                   <Metric label="QR scans" value={String(displayCampaign.tracking.qrScans)} />
                   <Metric label="WhatsApp clicks" value={String(displayCampaign.tracking.whatsappClicks)} />
                   <Metric label="Leads" value={String(displayCampaign.tracking.leads)} />
-                  <Metric label="Trial bookings" value={String(displayCampaign.tracking.trialBookings)} />
+                  <Metric label="Reserved orders" value={String(displayCampaign.tracking.trialBookings)} />
                   <Metric label="Cost per lead" value={displayCampaign.tracking.costPerLead} />
                   <Metric label="Proof uploads" value={displayCampaign.tracking.proofUploads} />
                 </div>

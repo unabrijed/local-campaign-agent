@@ -6,9 +6,10 @@ LocalBoard is an AI campaign planning agent for local businesses in Bengaluru. I
 
 - Website: https://localboard.example/
 - Run agent: https://localboard.example/agent-run
-- Sample campaign: https://localboard.example/campaign/aura-fit
+- Sample campaign: https://localboard.example/campaign/shoonya-store
+- Demo business: Shoonya Store, a custom merch brand for local popup and street campaign demos
 - Primary market: Bengaluru and Bangalore local business marketing
-- Target users: fitness studios, clinics, cafes, salons, coaching centers, D2C popups, and other local businesses
+- Target users: custom merch brands, D2C popups, fitness studios, clinics, cafes, salons, coaching centers, and other local businesses
 
 ## Capabilities
 

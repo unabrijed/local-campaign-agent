@@ -39,14 +39,14 @@ LocalBoard acts like a local campaign operator. It reads the business website, u
 
 ## Demo Campaign
 
-The demo uses **AuraFit Studio**, a premium fitness studio in Indiranagar.
+The demo uses **Shoonya Store**, a custom merch brand launching a local Bangalore drop from Indiranagar.
 
-- Campaign name: 7 Days Near Work
-- Goal: Trial bookings
-- Audience: Working professionals and women aged 24-38 near Indiranagar, Domlur, and Koramangala
-- Offer: Book a 7-day beginner trial batch near your office
+- Campaign name: Wear Your Scene
+- Goal: Popup visits and WhatsApp orders
+- Audience: Creators, college groups, startup teams, and streetwear buyers near Indiranagar, Koramangala, and MG Road + Church Street
+- Offer: Scan to preview the limited Bangalore drop and reserve custom merch on WhatsApp
 - Starter budget: INR 15,000
-- Placements: Cafe table cards, salon mirror stickers, apartment posters, coworking lobby screens
+- Placements: Cafe table cards, boutique counter cards, event flyers, coworking lobby screens
 - Tracking: QR scans, WhatsApp leads, proof uploads, campaign status
 
 ## Target Customers
@@ -128,7 +128,7 @@ Use this README to build a short pitch deck:
 3. Insight: Local attention moves by neighborhood, not only by keyword.
 4. Solution: AI agent that creates a complete Bengaluru street campaign.
 5. Product flow: Website to area plan to creatives to vendor outreach to launch board.
-6. Demo: AuraFit Studio, 7 Days Near Work campaign.
+6. Demo: Shoonya Store, Wear Your Scene campaign.
 7. Market: Local businesses, service brands, and venue partners.
 8. Differentiation: Campaign operator, not just ad inventory.
 9. Brand: Warm premium identity with board and signal-dot mark.
@@ -148,7 +148,7 @@ Use this README to build a short pitch deck:
 
 The frontend can run in two modes:
 
-1. **Demo fallback mode:** Uses static AuraFit campaign data from `src/data/localboardDemo.ts`.
+1. **Demo fallback mode:** Uses static Shoonya Store campaign data from `src/data/localboardDemo.ts`.
 2. **Live extraction mode:** Calls the Supabase Edge Function at `supabase/functions/analyze-website/index.ts`.
 
 The live function is the current backend agent endpoint. It receives a website URL, fetches the site server-side, extracts title/meta/page text, and returns a campaign-ready JSON response. If an OpenAI key is configured, it uses the LLM agent path. If no OpenAI key is configured, it falls back to heuristic extraction.
@@ -160,7 +160,7 @@ Homepage URL input
 -> /agent-run?url=...
 -> supabase.functions.invoke("analyze-website")
 -> stores latest result in sessionStorage
--> /campaign/aura-fit renders the live result
+-> /campaign/shoonya-store renders the live result
 ```
 
 If the function is not deployed or fails, the UI still works using the demo fallback campaign.
@@ -246,7 +246,7 @@ Main routes:
 
 - `/`
 - `/agent-run`
-- `/campaign/aura-fit`
+- `/campaign/shoonya-store`
 
 ## Indexing Assets
 
@@ -255,4 +255,4 @@ Main routes:
 - `public/llms.txt`
 - SEO metadata in `index.html`
 
-Current placeholder domain for indexing assets: `https://localboard.example`
+Current placeholder domain for indexing assets: `https://local-campaign-agent.vercel.app/`

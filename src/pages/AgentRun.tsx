@@ -64,7 +64,7 @@ const AgentRun = () => {
             <Logo />
           </Link>
           <Link
-            to="/campaign/aura-fit"
+            to="/campaign/shoonya-store"
             className="text-sm font-light px-4 py-2 rounded-full bg-foreground text-background hover:opacity-90 transition"
           >
             View campaign board
@@ -169,7 +169,7 @@ const AgentRun = () => {
               </div>
 
               <Link
-                to="/campaign/aura-fit"
+                to="/campaign/shoonya-store"
                 className={`mt-8 inline-flex w-full items-center justify-center gap-2 rounded-xl px-5 py-3 font-light transition ${
                   canOpenBoard
                     ? "bg-primary text-primary-foreground hover:opacity-95"

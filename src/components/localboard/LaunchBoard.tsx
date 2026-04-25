@@ -91,7 +91,7 @@ export const LaunchBoard = () => {
                 <Metric label="Leads" value={String(sampleCampaign.tracking.leads)} trend="+24%" />
               </div>
               <div className="mt-3 text-xs font-light text-muted-foreground">
-                Best area: {sampleCampaign.tracking.bestArea} · Best placement: {sampleCampaign.tracking.bestPlacement} · Trial bookings: {sampleCampaign.tracking.trialBookings}
+                Best area: {sampleCampaign.tracking.bestArea} · Best placement: {sampleCampaign.tracking.bestPlacement} · Reserved orders: {sampleCampaign.tracking.trialBookings}
               </div>
             </Widget>
 

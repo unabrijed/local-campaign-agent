@@ -19,7 +19,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/agent-run" element={<AgentRun />} />
-          <Route path="/campaign/aura-fit" element={<CampaignBoard />} />
+          <Route path="/campaign/shoonya-store" element={<CampaignBoard />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
